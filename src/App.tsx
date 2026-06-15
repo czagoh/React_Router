@@ -1,22 +1,14 @@
-import { Link, Outlet } from "react-router";
+import { useRouteLoaderData } from "react-router";
 
-import "./App.css";
+function Home() {
+  const weather = useRouteLoaderData("app") as string;
 
-function App() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/articles/1">Article 1</Link>
-        <Link to="/articles/2">Article 2</Link>
-        <Link to="/articles/3">Article 3</Link>
-      </nav>
-      <main>
-        <Outlet />
-      </main>
+      <h1>Hello from Home</h1>
+      <p>Today is a {weather} day</p>
     </>
   );
 }
 
-export default App;
+export default Home;
