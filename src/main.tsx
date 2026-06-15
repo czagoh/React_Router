@@ -8,11 +8,20 @@ import App from "./App";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Article from "./pages/Article";
+
+const getWeatherOfTheDay = () => {
+  return "sunny";
+};
+
 // router creation
 
 const router = createBrowserRouter([
   {
     element: <App />,
+    loader: () => {
+      return getWeatherOfTheDay();
+    },
+    id: "app",
     children: [
       {
         path: "/",
@@ -23,9 +32,9 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-    path: "/articles/:id",
-    element: <Article />,
-  },
+        path: "/articles/:id",
+        element: <Article />,
+      },
     ],
   },
 ]);
